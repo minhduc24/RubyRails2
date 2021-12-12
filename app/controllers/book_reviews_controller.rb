@@ -1,4 +1,4 @@
- class BookReviewsController < ApplicationController
+class BookReviewsController < ApplicationController
   before_action :set_book_review, only: %i[ show edit update destroy ]
 
   # GET /book_reviews or /book_reviews.json
@@ -26,7 +26,8 @@
 
     respond_to do |format|
       if @book_review.save
-        format.html { redirect_to @book_review, notice: "Book review was successfully created." }
+        url = "/books/" + @book_review.book_id.to_s
+        format.html { redirect_to url, notice: 'Book review was successfully created.' }
         format.json { render :show, status: :created, location: @book_review }
       else
         format.html { render :new, status: :unprocessable_entity }
