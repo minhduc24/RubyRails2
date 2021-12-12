@@ -1,3 +1,4 @@
+
 class BookReviewsController < ApplicationController
   before_action :set_book_review, only: %i[ show edit update destroy ]
 
